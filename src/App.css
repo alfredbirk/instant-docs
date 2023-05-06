@@ -1,0 +1,136 @@
+body {
+  background-color: #121B31;
+  background-color: #1E293B;
+
+}
+
+.App {
+  text-align: left;
+  background-color: #1E293B;
+
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.App-logo {
+  height: 25px;
+  margin-right: 0.5rem;
+}
+
+.App-header {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.search-container {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  align-items: center;
+
+  border-bottom-width: 5px;
+
+  height: 3.5rem;
+  border-bottom: 1px solid rgb(226 232 240/.05);
+}
+
+.modal {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 47.375rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-radius: 0.5rem;
+
+  background: #1e293b;
+}
+
+.item-container {
+  padding: 0.75rem 1rem;
+  background-color: #233143;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #94A3B8;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-container-hover {
+  background-color: #0084C7;
+  color: white;
+  cursor: pointer;
+}
+
+.icon-container {
+  padding: 0.2rem;
+  background-color: #334154;
+  margin-right: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid #334154;
+}
+
+.icon-container-hover {
+  background-color: #0084C7;
+  border: 1px solid #4C9DD3;
+}
+
+.lvl2-and-lvl3 {
+  margin-left: 2.5rem;
+  position: relative;
+}
+
+.vert::before {
+  --tw-bg-opacity: 1;
+    background-color: rgb(51 65 85/var(--tw-bg-opacity));
+    content: "";
+    position: absolute;
+    top: -0.25rem;
+    bottom: -0.25rem;
+    left: -2rem;
+    width: 1px;
+    background: #e2e8f0;
+
+    background-color: #334154;
+}
+
+.lvl3-container {
+  display: flex;
+  align-items: center;
+}
+
+.element-name mark {
+  color: white;
+  background: none;
+  font-weight: bold;
+}
+
+.DocSearch-Input {
+  height: 2.5rem;
+  background: transparent;
+  margin-left: 0.75rem;
+  border: 0;
+  color: rgb(226 232 240);
+  width: 100%;
+}
+
+.DocSearch-Input:focus {
+  outline: 0;
+}
+
+.App .lvl0:not(:first-of-type) {
+  margin-top: 1.5rem;
+}
+
+.App .lvl0:first-of-type {
+  margin-top: 1rem;
+}

@@ -1,0 +1,85 @@
+{
+  "name": "instant-docs",
+  "displayName": "Instant docs",
+  "description": "Instant documentation search inside of VSCode",
+  "version": "0.1.8",
+  "icon": "src/tailwind-logo.png",
+  "engines": {
+    "vscode": "^1.45.1"
+  },
+  "keywords": [
+    "documentation",
+    "docs",
+    "search",
+    "shortcut"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alfredbirk/instant-docs"
+  },
+  "publisher": "alfredbirk",
+  "activationEvents": [
+    "onCommand:instant-docs.search"
+  ],
+  "main": "./build/ext-src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "instant-docs.search",
+        "title": "Tailwind Documentation Search"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "instant-docs.search",
+        "key": "ctrl+alt+t",
+        "mac": "ctrl+cmd+t"
+      }
+    ]
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@types/lodash": "^4.14.181",
+    "@types/vscode": "^1.45.1",
+    "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "usehooks-ts": "^2.5.1"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "start": "react-scripts start",
+    "build": "npm run compile",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "compile": "./scripts/build-non-split.js && tsc -p tsconfig.extension.json",
+    "pretest": "npm run compile",
+    "esbuild-base": "esbuild ./ext-src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/node": "^18.11.18",
+    "@types/node-fetch": "^2.6.1",
+    "@types/react": "^16.3.14",
+    "@types/react-dom": "^16.0.5",
+    "esbuild": "^0.14.36",
+    "react-scripts": "^5.0.1",
+    "rewire": "^5.0.0",
+    "terser": "^4.8.1",
+    "typescript": "^4.9.4"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
