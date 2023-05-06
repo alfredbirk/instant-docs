@@ -1,7 +1,7 @@
 // @ts-nocheck
 import * as React from "react";
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import logo from "./logos/tailwind.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +10,7 @@ import { useDebounce } from "usehooks-ts";
 import { getFlattenedItems, useKeyPress } from "./utils";
 import cn from "classnames";
 import appConfig from "./apps/tailwind"
+import { Select } from '@mantine/core';
 
 interface vscode {
 	postMessage(message: any): void;
@@ -24,6 +25,7 @@ const App = () => {
 	const debouncedQuery = useDebounce<string>(query, 100);
 	const [iframeUrl, setIframeUrl] = useState("");
 	const [items, setItems] = useState([]);
+	const inputRef = useRef(null);
 
 	/////////////////////
 	// Keyboard navigation
@@ -182,6 +184,21 @@ const App = () => {
 				<h3>{appConfig.displayName} documentation</h3>
 			</div>
 
+				<Select
+				  label="Select library"
+				  placeholder="Pick one"
+				  searchable
+				  data={['React', 'Angular', 'Svelte', 'Vue']}
+				  initiallyOpened
+				  hoverOnSearchChange
+				  autoFocus
+				  onChange={(query) => {
+					setTimeout(() => {
+						inputRef.current.focus()
+					}, 0);
+				}}
+				/>
+
 			<div className="modal">
 				<div className="search-container">
 					<label className="DocSearch-MagnifierLabel" htmlFor="docsearch-input" id="docsearch-label">
@@ -197,12 +214,12 @@ const App = () => {
 						</svg>
 					</label>
 					<input
+						ref={inputRef}
 						onInput={onInput}
 						className="DocSearch-Input"
 						aria-autocomplete="list"
 						aria-labelledby="docsearch-label"
 						id="docsearch-input"
-						autoFocus
 						autoComplete="off"
 						autoCorrect="off"
 						autoCapitalize="off"
