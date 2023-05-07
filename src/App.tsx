@@ -57,6 +57,7 @@ const App = () => {
 	useEffect(() => {
 		if (items.length && hovered !== undefined) {
 			setCursor(hovered);
+			inputRef.current.blur()
 		}
 	}, [hovered]);
 	useEffect(() => {
