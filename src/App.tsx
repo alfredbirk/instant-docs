@@ -184,22 +184,23 @@ const App = () => {
 				<Logo width="2rem" height="2rem" fill="none" stroke="green" />
 				<h3 style={{ marginLeft: "1rem"}}>Instant Docs</h3>
 			</div>
-
-				<Select
-				  label="Documentation for"
-				  placeholder="Pick one"
-				  searchable
-				  data={libraries.map(lib => lib.displayName)}
-				  initiallyOpened
-				  hoverOnSearchChange
-				  autoFocus
-				  onChange={(value) => {
-					setSelectedLibrary(libraries.find(lib => lib.displayName === value))
-					setTimeout(() => {
-						inputRef.current.focus()
-					}, 0);
-				}}
-				/>
+				<div className="select-container">
+					<Select
+					  label={<span style={{ color: "white" }}>Documentation for</span>}
+					placeholder="Pick one"
+					searchable
+					data={libraries.map(lib => lib.displayName)}
+					initiallyOpened
+					hoverOnSearchChange
+					autoFocus
+					onChange={(value) => {
+						setSelectedLibrary(libraries.find(lib => lib.displayName === value))
+						setTimeout(() => {
+							inputRef.current.focus()
+						}, 0);
+					}}
+					/>
+			</div>
 
 			<div className="modal">
 				<div className="search-container">

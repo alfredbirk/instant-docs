@@ -31,6 +31,12 @@ body {
   font-size: large;
 }
 
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .search-container {
   display: flex;
   min-width: 0;
