@@ -39,16 +39,19 @@ const App = () => {
 	useEffect(() => {
 		if (items.length && downPress) {
 			setCursor((prevState: any) => (prevState < items.length - 1 ? prevState + 1 : prevState));
+			inputRef.current.blur()
 		}
 	}, [downPress]);
 	useEffect(() => {
 		if (items.length && upPress) {
 			setCursor((prevState: any) => (prevState > 0 ? prevState - 1 : prevState));
+			inputRef.current.blur()
 		}
 	}, [upPress]);
 	useEffect(() => {
 		if (items.length && enterPress) {
 			setSelected(cursor);
+			inputRef.current.blur()
 		}
 	}, [cursor, enterPress]);
 	useEffect(() => {
@@ -83,6 +86,13 @@ const App = () => {
 			const flattenedItems = getFlattenedItems(hits);
 			setItems(flattenedItems)
 		})
+
+		// Disable scrolling with arrow keys
+		window.addEventListener("keydown", function(e) {
+			if(["ArrowUp","ArrowDown"].indexOf(e.code) > -1) {
+				e.preventDefault();
+			}
+		}, false);
 	}, []);
 
 	if (iframeUrl) {
