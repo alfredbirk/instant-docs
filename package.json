@@ -2,7 +2,7 @@
   "name": "instant-docs",
   "displayName": "Instant Docs",
   "description": "Instant documentation search inside of VSCode",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "icon": "src/logo.png",
   "engines": {
     "vscode": "^1.45.1"
