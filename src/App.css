@@ -53,11 +53,13 @@ body {
     min-width: 0;
     flex: 1 1 auto;
     align-items: center;
-
     border-bottom-width: 5px;
-
     height: 3.5rem;
     border-bottom: 1px solid rgb(226 232 240/0.05);
+}
+
+.search-container:focus-within {
+    border-bottom: 1px solid rgb(25, 113, 194); 
 }
 
 .modal {
