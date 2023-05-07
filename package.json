@@ -1,6 +1,6 @@
 {
   "name": "instant-docs",
-  "displayName": "Instant docs",
+  "displayName": "Instant Docs",
   "description": "Instant documentation search inside of VSCode",
   "version": "0.0.2",
   "icon": "src/logo.png",
