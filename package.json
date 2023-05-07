@@ -32,8 +32,8 @@
     "keybindings": [
       {
         "command": "instant-docs.search",
-        "key": "ctrl+alt+t",
-        "mac": "ctrl+cmd+t"
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i"
       }
     ]
   },
