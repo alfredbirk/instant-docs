@@ -86,7 +86,7 @@ const App = () => {
 
 	if (iframeUrl) {
 		return (
-			<div style={{ height: "100vh" }}>
+			<div style={{ height: "100vh", background: "white" }}>
 				<iframe width="100%" height="100%" src={iframeUrl} title={`${selectedLibrary.displayName} documentation`}></iframe>
 			</div>
 		);
