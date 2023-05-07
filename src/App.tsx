@@ -193,8 +193,8 @@ const App = () => {
 				  initiallyOpened
 				  hoverOnSearchChange
 				  autoFocus
-				  onChange={(query) => {
-					setSelectedLibrary(libraries.find(lib => lib.displayName === query))
+				  onChange={(value) => {
+					setSelectedLibrary(libraries.find(lib => lib.displayName === value))
 					setTimeout(() => {
 						inputRef.current.focus()
 					}, 0);
