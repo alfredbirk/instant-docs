@@ -112,7 +112,14 @@ const libraries: LibraryConfig[] = [
         extraBodyParams: {
             facetFilters: '["version:4.1"]"}]'
         }
-    }
+    },
+    {
+        displayName: "Cypress",
+        logoPath: "src/logos/tailwind.svg",
+        indexName: "cypress_docs",
+        algoliaApiUrl: "https://r9kda5fmjb-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.17.0)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docusaurus%20(2.4.0)&x-algolia-api-key=b4af59e23bc2fa05281af7dcf13fcae5&x-algolia-application-id=R9KDA5FMJB",
+        extraBodyParams: {}
+    },
 ]
 
 export default libraries
