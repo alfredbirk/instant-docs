@@ -124,7 +124,7 @@ const libraries: LibraryConfig[] = [
         displayName: "Redux",
         logoPath: "src/logos/tailwind.svg",
         indexName: "redux",
-        algoliaApiUrl: " https://yuqhc5ocw0-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.14.3)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docusaurus%20(2.2.0)&x-algolia-api-key=ef8f3e604a1e7ed3afa4dbaeeecfa5f2&x-algolia-application-id=YUQHC5OCW0",
+        algoliaApiUrl: "https://yuqhc5ocw0-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.14.3)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docusaurus%20(2.2.0)&x-algolia-api-key=ef8f3e604a1e7ed3afa4dbaeeecfa5f2&x-algolia-application-id=YUQHC5OCW0",
         extraBodyParams: {
             facetFilters: '["language:en", ["docusaurus_tag:default", "docusaurus_tag:docs-default-current"]]',
         },
