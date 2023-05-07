@@ -103,6 +103,15 @@ const libraries: LibraryConfig[] = [
         extraBodyParams: {
             facetFilters: '["language:en",["counter:2","counter:1"]]'
         }
+    },
+    {
+        displayName: "Bootstrap",
+        logoPath: "src/logos/tailwind.svg",
+        indexName: "bootstrap",
+        algoliaApiUrl: "https://bh4d9od16a-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=BH4D9OD16A&x-algolia-api-key=5990ad008512000bba2cf951ccf0332f",
+        extraBodyParams: {
+            facetFilters: '["version:4.1"]"}]'
+        }
     }
 ]
 
