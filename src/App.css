@@ -30,6 +30,11 @@ body {
     font-size: large;
 }
 
+.mantine-Select-input {
+    background: none;
+    color: white
+}
+
 .inputs-container {
     margin-left: 2rem;
 }

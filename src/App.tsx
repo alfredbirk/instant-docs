@@ -182,7 +182,7 @@ const App = () => {
 	return (
 		<div className="App">
 			<div className="App-header">
-				<Logo width="2rem" height="2rem" fill="none" stroke="green" />
+				<Logo width="2rem" height="2rem" fill="none" stroke="white" />
 				<h3 style={{ marginLeft: "1rem" }}>Instant Docs</h3>
 			</div>
 			<div className="modal">
