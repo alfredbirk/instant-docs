@@ -185,53 +185,55 @@ const App = () => {
 				<Logo width="2rem" height="2rem" fill="none" stroke="green" />
 				<h3 style={{ marginLeft: "1rem" }}>Instant Docs</h3>
 			</div>
-			<div className="select-container">
-				<Select
-					label={<span style={{ color: "white" }}>Documentation for</span>}
-					placeholder="Pick one"
-					searchable
-					data={libraries.map(lib => lib.displayName)}
-					initiallyOpened
-					hoverOnSearchChange
-					autoFocus
-					onChange={(value) => {
-						setSelectedLibrary(libraries.find(lib => lib.displayName === value))
-						setTimeout(() => {
-							inputRef.current.focus()
-						}, 0);
-					}}
-				/>
-			</div>
-
 			<div className="modal">
-				<div className="search-container">
-					<label className="DocSearch-MagnifierLabel" htmlFor="docsearch-input" id="docsearch-label">
-						<svg width="20" height="20" className="DocSearch-Search-Icon" viewBox="0 0 20 20">
-							<path
-								d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z"
-								stroke="currentColor"
-								fill="none"
-								fill-rule="evenodd"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							></path>
-						</svg>
-					</label>
-					<input
-						ref={inputRef}
-						onInput={onInput}
-						className="DocSearch-Input"
-						aria-autocomplete="list"
-						aria-labelledby="docsearch-label"
-						id="docsearch-input"
-						autoComplete="off"
-						autoCorrect="off"
-						autoCapitalize="off"
-						placeholder="Search"
-						type="search"
-						value={query}
-					/>
+				<div className="inputs-container">
+					<div className="select-container">
+						<span className="select-label">Documentation for</span>
+						<Select
+							placeholder="Pick one"
+							searchable
+							data={libraries.map(lib => lib.displayName)}
+							initiallyOpened
+							hoverOnSearchChange
+							autoFocus
+							onChange={(value) => {
+								setSelectedLibrary(libraries.find(lib => lib.displayName === value))
+								setTimeout(() => {
+									inputRef.current.focus()
+								}, 0);
+							}}
+						/>
+					</div>
+					<div className="search-container">
+						<label className="DocSearch-MagnifierLabel" htmlFor="docsearch-input" id="docsearch-label">
+							<svg width="20" height="20" className="DocSearch-Search-Icon" viewBox="0 0 20 20">
+								<path
+									d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z"
+									stroke="currentColor"
+									fill="none"
+									fill-rule="evenodd"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								></path>
+							</svg>
+						</label>
+						<input
+							ref={inputRef}
+							onInput={onInput}
+							className="DocSearch-Input"
+							aria-autocomplete="list"
+							aria-labelledby="docsearch-label"
+							id="docsearch-input"
+							autoComplete="off"
+							autoCorrect="off"
+							autoCapitalize="off"
+							placeholder="Search"
+							type="search"
+							value={query}
+						/>
+					</div>
 				</div>
+
 			</div>
 
 			{items.length > 0 && items.map((item: any) => renderItem(item))}
