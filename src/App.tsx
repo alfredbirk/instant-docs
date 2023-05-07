@@ -193,7 +193,7 @@ const App = () => {
 					<h3 style={{ marginLeft: "1rem" }}>Instant Docs</h3>
 				</div>
 				<div className="modal">
-					<div className="inputs-container">
+					<div className="inner-container">
 						<div className="select-container">
 							<span className="select-label">Documentation for</span>
 							<Select
@@ -240,9 +240,9 @@ const App = () => {
 								value={query}
 							/>
 						</div>
+						{items.length > 0 && items.map((item: any) => renderItem(item))}
 					</div>
 				</div>
-				{items.length > 0 && items.map((item: any) => renderItem(item))}
 			</div>
 		</MantineProvider>
 	);
