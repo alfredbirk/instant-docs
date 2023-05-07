@@ -1,6 +1,6 @@
-import { AppConfig } from "../models"
+import { LibraryConfig } from "../models"
 
-const apps: AppConfig[] = [
+const libraries: LibraryConfig[] = [
     {
         displayName: "Tailwind",
         logoPath: "src/logos/tailwind.svg",
@@ -106,4 +106,4 @@ const apps: AppConfig[] = [
     }
 ]
 
-export default apps
+export default libraries

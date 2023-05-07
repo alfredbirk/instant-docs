@@ -1,4 +1,4 @@
-export interface AppConfig {
+export interface LibraryConfig {
     displayName: string,
     logoPath: string,
     indexName: string,

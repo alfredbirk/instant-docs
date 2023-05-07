@@ -26,7 +26,7 @@ const App = () => {
 	const [iframeUrl, setIframeUrl] = useState("");
 	const [items, setItems] = useState([]);
 	const inputRef = useRef(null);
-	const [appConfig, setSelectedAppConfg] = useState(libraries[0]);
+	const [selectedLibrary, setSelectedLibrary] = useState(libraries[0]);
 
 	/////////////////////
 	// Keyboard navigation
@@ -66,7 +66,7 @@ const App = () => {
 
 	useEffect(() => {
 		if (query) {
-			vscodeApi.postMessage({ command: "query", value: query, library: appConfig.displayName });
+			vscodeApi.postMessage({ command: "query", value: query, library: selectedLibrary.displayName });
 		}
 	}, [debouncedQuery]);
 
@@ -87,7 +87,7 @@ const App = () => {
 	if (iframeUrl) {
 		return (
 			<div style={{ height: "100vh" }}>
-				<iframe width="100%" height="100%" src={iframeUrl} title={`${appConfig.displayName} documentation`}></iframe>
+				<iframe width="100%" height="100%" src={iframeUrl} title={`${selectedLibrary.displayName} documentation`}></iframe>
 			</div>
 		);
 	}
@@ -182,7 +182,7 @@ const App = () => {
 		<div className="App">
 			<div className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
-				<h3>{appConfig.displayName} documentation</h3>
+				<h3>Instant Docs</h3>
 			</div>
 
 				<Select
@@ -194,7 +194,7 @@ const App = () => {
 				  hoverOnSearchChange
 				  autoFocus
 				  onChange={(query) => {
-					setSelectedAppConfg(libraries.find(lib => lib.displayName === query))
+					setSelectedLibrary(libraries.find(lib => lib.displayName === query))
 					setTimeout(() => {
 						inputRef.current.focus()
 					}, 0);
