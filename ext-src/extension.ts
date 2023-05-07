@@ -2,7 +2,6 @@ import * as path from "path";
 import * as vscode from "vscode";
 import fetch from "node-fetch";
 import { Uri } from "vscode";
-import libraries from "../src/libraries";
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
@@ -66,8 +65,7 @@ class ReactPanel {
 				switch (message.command) {
 					// Call agolia API for the search and send results back to webview
 					case "query":
-						const displayName = message.library;
-						const library = libraries.find(lib => lib.displayName === displayName)
+						const library = JSON.parse(message.library)
 						if (!library) {
 							throw Error("Error: No library selected")
 						}

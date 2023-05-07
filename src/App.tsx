@@ -66,7 +66,7 @@ const App = () => {
 
 	useEffect(() => {
 		if (query) {
-			vscodeApi.postMessage({ command: "query", value: query, library: selectedLibrary.displayName });
+			vscodeApi.postMessage({ command: "query", value: query, library: JSON.stringify(selectedLibrary) });
 		}
 	}, [debouncedQuery]);
 

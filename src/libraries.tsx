@@ -1,9 +1,12 @@
+import { SiJest } from "react-icons/si"
 import { LibraryConfig } from "./models"
+import React from "react"
 
 const libraries: LibraryConfig[] = [
     {
         displayName: "Typescript",
         logoPath: "src/logos/tailwind.svg",
+        logo: <SiJest color='#C21325' />,
         indexName: "typescriptlang",
         algoliaApiUrl: "https://bgcdyoiyz5-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=BGCDYOIYZ5&x-algolia-api-key=37ee06fa68db6aef451a490df6df7c60",
         extraBodyParams: {}

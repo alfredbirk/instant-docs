@@ -43,6 +43,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@icons-pack/react-simple-icons": "^7.2.0",
     "@mantine/core": "^6.0.10",
     "@mantine/hooks": "^6.0.10",
     "@types/lodash": "^4.14.181",
@@ -52,6 +53,7 @@
     "node-fetch": "^2.6.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^4.8.0",
     "usehooks-ts": "^2.5.1"
   },
   "scripts": {
