@@ -82,7 +82,8 @@ const App = () => {
 			const hits = message.data[0].hits;
 			const flattenedItems = getFlattenedItems(hits);
 			setItems(flattenedItems)
-	})}, []);
+		})
+	}, []);
 
 	if (iframeUrl) {
 		return (
@@ -182,11 +183,11 @@ const App = () => {
 		<div className="App">
 			<div className="App-header">
 				<Logo width="2rem" height="2rem" fill="none" stroke="green" />
-				<h3 style={{ marginLeft: "1rem"}}>Instant Docs</h3>
+				<h3 style={{ marginLeft: "1rem" }}>Instant Docs</h3>
 			</div>
-				<div className="select-container">
-					<Select
-					  label={<span style={{ color: "white" }}>Documentation for</span>}
+			<div className="select-container">
+				<Select
+					label={<span style={{ color: "white" }}>Documentation for</span>}
 					placeholder="Pick one"
 					searchable
 					data={libraries.map(lib => lib.displayName)}
@@ -199,7 +200,7 @@ const App = () => {
 							inputRef.current.focus()
 						}, 0);
 					}}
-					/>
+				/>
 			</div>
 
 			<div className="modal">
