@@ -8,11 +8,11 @@ Instant documentation search inside of VSCode.
 
 ## Features
 - Will open within VSCode - don't lose context!
-- Documentation for 10+ libraries (React, Typescript, Express, Tailwind, Jest ++)
+- Documentation for 10+ libraries (Typescript, React, Express, Tailwind, Jest ++)
 - Open with:
-    - Mac: `cmd + ctrl + t`
-    - Windows: `ctrl + alt + t`
+    - Mac: `cmd + shift + i`
+    - Windows: `ctrl + shift + i`
 - Keyboard navigation
 
 
-![Screen-Recording-2022-04-17-at-1 (4)](https://user-images.githubusercontent.com/11172530/163716626-8d74a1bb-f05b-4b45-aa12-70f66e0efad8.gif)
+![InstantDocs](https://user-images.githubusercontent.com/11172530/236686102-0beef484-d642-4147-b995-2acb26cdf10e.gif)
