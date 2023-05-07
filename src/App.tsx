@@ -3,7 +3,7 @@ import * as React from "react";
 import "./App.css";
 import { useState, useEffect, useRef } from "react";
 
-import logo from "./logos/tailwind.svg";
+import { ReactComponent as Logo } from "./logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookOpen, faHashtag, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "usehooks-ts";
@@ -181,8 +181,8 @@ const App = () => {
 	return (
 		<div className="App">
 			<div className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<h3>Instant Docs</h3>
+				<Logo width="2rem" height="2rem" fill="none" stroke="green" />
+				<h3 style={{ marginLeft: "1rem"}}>Instant Docs</h3>
 			</div>
 
 				<Select
