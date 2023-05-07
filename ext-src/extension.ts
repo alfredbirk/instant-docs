@@ -2,7 +2,10 @@ import * as path from "path";
 import * as vscode from "vscode";
 import fetch from "node-fetch";
 import { Uri } from "vscode";
-import appConfig from "../src/apps/tailwind";
+import libraries from "../src/apps/tailwind";
+
+const appConfig = libraries[0]
+
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
@@ -66,10 +69,15 @@ class ReactPanel {
 				switch (message.command) {
 					// Call agolia API for the search and send results back to webview
 					case "query":
+						const displayName = message.library;
+						const library = libraries.find(lib => lib.displayName === displayName)
+						if (!library) {
+							throw Error("Error: No library selected")
+						}
 						const body = JSON.stringify({
 							requests: [
 								{
-									indexName: appConfig.indexName,
+									indexName: library.indexName,
 									query: message.value,
 									params: new URLSearchParams({
 										"hitsPerPage":"20",
@@ -77,13 +85,13 @@ class ReactPanel {
 										"highlightPostTag":"</mark>",
 										"snippetEllipsisText":"…",
 										"distinct":"1",
-										...appConfig.extraBodyParams
+										...library.extraBodyParams
 									  }).toString()
 								},
 							],
 						});
 						const response = await fetch(
-							appConfig.algoliaApiUrl,
+							library.algoliaApiUrl,
 							{
 								headers: {},
 								body: body,

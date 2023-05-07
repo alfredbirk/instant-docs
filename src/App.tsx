@@ -9,7 +9,7 @@ import { faBookOpen, faHashtag, faChevronRight } from "@fortawesome/free-solid-s
 import { useDebounce } from "usehooks-ts";
 import { getFlattenedItems, useKeyPress } from "./utils";
 import cn from "classnames";
-import appConfig from "./apps/tailwind"
+import libraries from "./apps/tailwind"
 import { Select } from '@mantine/core';
 
 interface vscode {
@@ -26,6 +26,7 @@ const App = () => {
 	const [iframeUrl, setIframeUrl] = useState("");
 	const [items, setItems] = useState([]);
 	const inputRef = useRef(null);
+	const [appConfig, setSelectedAppConfg] = useState(libraries[0]);
 
 	/////////////////////
 	// Keyboard navigation
@@ -65,7 +66,7 @@ const App = () => {
 
 	useEffect(() => {
 		if (query) {
-			vscodeApi.postMessage({ command: "query", value: query });
+			vscodeApi.postMessage({ command: "query", value: query, library: appConfig.displayName });
 		}
 	}, [debouncedQuery]);
 
@@ -188,11 +189,12 @@ const App = () => {
 				  label="Select library"
 				  placeholder="Pick one"
 				  searchable
-				  data={['React', 'Angular', 'Svelte', 'Vue']}
+				  data={libraries.map(lib => lib.displayName)}
 				  initiallyOpened
 				  hoverOnSearchChange
 				  autoFocus
 				  onChange={(query) => {
+					setSelectedAppConfg(libraries.find(lib => lib.displayName === query))
 					setTimeout(() => {
 						inputRef.current.focus()
 					}, 0);
