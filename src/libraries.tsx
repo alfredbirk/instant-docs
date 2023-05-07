@@ -120,6 +120,15 @@ const libraries: LibraryConfig[] = [
         algoliaApiUrl: "https://r9kda5fmjb-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.17.0)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docusaurus%20(2.4.0)&x-algolia-api-key=b4af59e23bc2fa05281af7dcf13fcae5&x-algolia-application-id=R9KDA5FMJB",
         extraBodyParams: {}
     },
+    {
+        displayName: "Redux",
+        logoPath: "src/logos/tailwind.svg",
+        indexName: "redux",
+        algoliaApiUrl: " https://yuqhc5ocw0-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.14.3)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docusaurus%20(2.2.0)&x-algolia-api-key=ef8f3e604a1e7ed3afa4dbaeeecfa5f2&x-algolia-application-id=YUQHC5OCW0",
+        extraBodyParams: {
+            facetFilters: '["language:en", ["docusaurus_tag:default", "docusaurus_tag:docs-default-current"]]',
+        },
+    },
 ]
 
 export default libraries
