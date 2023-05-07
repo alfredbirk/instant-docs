@@ -94,6 +94,15 @@ const libraries: LibraryConfig[] = [
         extraBodyParams: {
             facetFilters: '["language:en",["docusaurus_tag:default","docusaurus_tag:docs-community-current","docusaurus_tag:docs-default-stable"]]"}]}'
         }
+    },
+    {
+        displayName: "Puppeteer",
+        logoPath: "src/logos/tailwind.svg",
+        indexName: "pptr",
+        algoliaApiUrl: "https://dvky664lg7-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.16.0)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docusaurus%20(2.4.0)&x-algolia-api-key=4dac1ae64b623f1d33ae0b4ce0ff16a4&x-algolia-application-id=DVKY664LG7",
+        extraBodyParams: {
+            facetFilters: '["language:en",["counter:2","counter:1"]]'
+        }
     }
 ]
 
