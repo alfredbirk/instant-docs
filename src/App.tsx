@@ -186,7 +186,7 @@ const App = () => {
 			</div>
 
 				<Select
-				  label="Select library"
+				  label="Documentation for"
 				  placeholder="Pick one"
 				  searchable
 				  data={libraries.map(lib => lib.displayName)}
