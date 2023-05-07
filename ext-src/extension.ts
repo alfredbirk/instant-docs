@@ -2,7 +2,7 @@ import * as path from "path";
 import * as vscode from "vscode";
 import fetch from "node-fetch";
 import { Uri } from "vscode";
-import libraries from "../src/apps/tailwind";
+import libraries from "../src/libraries";
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(

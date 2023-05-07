@@ -1,6 +1,20 @@
-import { LibraryConfig } from "../models"
+import { LibraryConfig } from "./models"
 
 const libraries: LibraryConfig[] = [
+    {
+        displayName: "Typescript",
+        logoPath: "src/logos/tailwind.svg",
+        indexName: "typescriptlang",
+        algoliaApiUrl: "https://bgcdyoiyz5-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=BGCDYOIYZ5&x-algolia-api-key=37ee06fa68db6aef451a490df6df7c60",
+        extraBodyParams: {}
+    },
+    {
+        displayName: "React",
+        logoPath: "src/logos/tailwind.svg",
+        indexName: "beta-react",
+        algoliaApiUrl: "https://1fcf9ayyat-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.12.0)%3B%20Browser%20(lite)%3B%20docsearch%20(3.0.0-alpha.41)%3B%20docsearch-react%20(3.0.0-alpha.41)&x-algolia-api-key=e8451218980a351815563de007648b00&x-algolia-application-id=1FCF9AYYAT",
+        extraBodyParams: {}
+    },
     {
         displayName: "Tailwind",
         logoPath: "src/logos/tailwind.svg",
@@ -11,26 +25,21 @@ const libraries: LibraryConfig[] = [
         }
     },
     {
-        displayName: "React",
-        logoPath: "src/logos/tailwind.svg",
-        indexName: "beta-react",
-        algoliaApiUrl: "https://1fcf9ayyat-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.12.0)%3B%20Browser%20(lite)%3B%20docsearch%20(3.0.0-alpha.41)%3B%20docsearch-react%20(3.0.0-alpha.41)&x-algolia-api-key=e8451218980a351815563de007648b00&x-algolia-application-id=1FCF9AYYAT",
-        extraBodyParams: {}
-    },
-    {
-        displayName: "Typescript",
-        logoPath: "src/logos/tailwind.svg",
-        indexName: "typescriptlang",
-        algoliaApiUrl: "https://bgcdyoiyz5-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=BGCDYOIYZ5&x-algolia-api-key=37ee06fa68db6aef451a490df6df7c60",
-        extraBodyParams: {}
-    },
-    {
         displayName: "Express js",
         logoPath: "src/logos/tailwind.svg",
         indexName: "expressjs",
         algoliaApiUrl: "https://bh4d9od16a-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=BH4D9OD16A&x-algolia-api-key=7164e33055faa6ecddefd9e08fc59f5d",
         extraBodyParams: {
             "facetFilters": '["lang:en"]'
+        }
+    },
+    {
+        displayName: "Jest",
+        logoPath: "src/logos/tailwind.svg",
+        indexName: "jest-v2",
+        algoliaApiUrl: "https://hp439uusol-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.17.0)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docusaurus%20(2.4.0)&x-algolia-api-key=e5e670fd16f8f17caada79d6b0931682&x-algolia-application-id=HP439UUSOL",
+        extraBodyParams: {
+            facetFilters: '["language:en",["docusaurus_tag:default","docusaurus_tag:docs-default-29.5"]]'
         }
     },
     {
@@ -46,15 +55,6 @@ const libraries: LibraryConfig[] = [
         indexName: "momentjs",
         algoliaApiUrl: "https://bh4d9od16a-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=BH4D9OD16A&x-algolia-api-key=46b499f4c91f1c0382073dc182b3dcfa",
         extraBodyParams: {}
-    },
-    {
-        displayName: "Laravel",
-        logoPath: "src/logos/tailwind.svg",
-        indexName: "laravel",
-        algoliaApiUrl: "https://e3mirnpjh5-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.8.5)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docsearch.js%20(3.3.3)&x-algolia-api-key=1fa3a8fec06eb1858d6ca137211225c0&x-algolia-application-id=E3MIRNPJH5",
-        extraBodyParams: {
-            facetFilters: '["version:10.x"]'
-        }
     },
     {
         displayName: "Webpack",
@@ -85,15 +85,6 @@ const libraries: LibraryConfig[] = [
         indexName: "nestjs",
         algoliaApiUrl: "https://sdcbyan96j-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.8.5)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.4)%3B%20docsearch-react%20(3.3.4)%3B%20docsearch.js%20(3.3.4)&x-algolia-api-key=6d1869890dab96592b191e63a8deb5b5&x-algolia-application-id=SDCBYAN96J",
         extraBodyParams: {}
-    },
-    {
-        displayName: "Jest",
-        logoPath: "src/logos/tailwind.svg",
-        indexName: "jest-v2",
-        algoliaApiUrl: "https://hp439uusol-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.17.0)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docusaurus%20(2.4.0)&x-algolia-api-key=e5e670fd16f8f17caada79d6b0931682&x-algolia-application-id=HP439UUSOL",
-        extraBodyParams: {
-            facetFilters: '["language:en",["docusaurus_tag:default","docusaurus_tag:docs-default-29.5"]]'
-        }
     },
     {
         displayName: "Playwright",

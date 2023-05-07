@@ -9,7 +9,7 @@ import { faBookOpen, faHashtag, faChevronRight } from "@fortawesome/free-solid-s
 import { useDebounce } from "usehooks-ts";
 import { getFlattenedItems, useKeyPress } from "./utils";
 import cn from "classnames";
-import libraries from "./apps/tailwind"
+import libraries from "./libraries"
 import { Select } from '@mantine/core';
 
 interface vscode {
