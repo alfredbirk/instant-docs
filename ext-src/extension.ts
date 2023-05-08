@@ -149,7 +149,7 @@ class ReactPanel {
 
 			</head>
 
-			<body>
+			<body style="background-color:#2c2e33;">
 				<noscript>You need to enable JavaScript to run this app.</noscript>
 				<div id="root"></div>
 				
