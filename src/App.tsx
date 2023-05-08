@@ -9,7 +9,7 @@ import { faBookOpen, faHashtag, faChevronRight } from "@fortawesome/free-solid-s
 import { useDebounce } from "usehooks-ts";
 import { getFlattenedItems, useKeyPress } from "./utils";
 import cn from "classnames";
-import libraries from "./libraries"
+import librariesFromFile from "./libraries"
 import { MantineProvider, Select } from '@mantine/core';
 
 interface vscode {
@@ -26,7 +26,8 @@ const App = () => {
 	const [iframeUrl, setIframeUrl] = useState("");
 	const [items, setItems] = useState([]);
 	const inputRef = useRef(null);
-	const [selectedLibrary, setSelectedLibrary] = useState(libraries[0]);
+	const [libraries, setLibraries] = useState();
+	const [selectedLibrary, setSelectedLibrary] = useState(null);
 
 	/////////////////////
 	// Keyboard navigation
@@ -63,7 +64,7 @@ const App = () => {
 	useEffect(() => {
 		const selectedItem = items.find((item) => item.id === selected);
 		if (selectedItem && selectedItem.url) {
-			setIframeUrl(selectedItem.url);
+			handleSetIframeUrl(selectedItem.url);
 		}
 	}, [selected]);
 	/////////////////////
@@ -83,18 +84,34 @@ const App = () => {
 
 	useEffect(() => {
 		window.addEventListener("message", (message) => {
-			const hits = message.data[0].hits;
-			const flattenedItems = getFlattenedItems(hits);
-			setItems(flattenedItems)
+			if (message.data.command === "recentlyUsedDocs") {
+				const recentlyUsedDocs = message.data.recentlyUsedDocs
+				const sortedLibraries = librariesFromFile.sort((a, b) => {
+					const aIndex = recentlyUsedDocs.indexOf(a.indexName) === -1 ? 1000 : recentlyUsedDocs.indexOf(a.indexName)
+					const bIndex = recentlyUsedDocs.indexOf(b.indexName) === -1 ? 1000 : recentlyUsedDocs.indexOf(b.indexName)
+					return aIndex - bIndex;
+				})
+				setLibraries(sortedLibraries)
+			} else {
+				const hits = message.data[0].hits;
+				const flattenedItems = getFlattenedItems(hits);
+				setItems(flattenedItems)
+			}
+
 		})
 
 		// Disable scrolling with arrow keys
-		window.addEventListener("keydown", function(e) {
-			if(["ArrowUp","ArrowDown"].indexOf(e.code) > -1) {
+		window.addEventListener("keydown", function (e) {
+			if (["ArrowUp", "ArrowDown"].indexOf(e.code) > -1) {
 				e.preventDefault();
 			}
 		}, false);
 	}, []);
+
+	const handleSetIframeUrl = (url) => {
+		vscodeApi.postMessage({ command: "openDocs", libraryIndexName: selectedLibrary.indexName });
+		setIframeUrl(url);
+	}
 
 	if (iframeUrl) {
 		return (
@@ -102,6 +119,10 @@ const App = () => {
 				<iframe width="100%" height="100%" src={iframeUrl} title={`${selectedLibrary.displayName} documentation`}></iframe>
 			</div>
 		);
+	}
+
+	if (!libraries) {
+		return <></>
 	}
 
 	const renderItem = (item) => {
@@ -112,7 +133,7 @@ const App = () => {
 				if (item.isHighestLvl) {
 					return (
 						<div
-							onClick={() => setIframeUrl(item.url)}
+							onClick={() => handleSetIframeUrl(item.url)}
 							className={cn("item-container", { "item-container-hover": cursor === item.id })}
 							onMouseEnter={() => setHovered(item.id)}
 							onMouseLeave={() => setHovered(undefined)}
@@ -129,7 +150,7 @@ const App = () => {
 				} else {
 					return (
 						<div
-							onClick={() => setIframeUrl(item.url)}
+							onClick={() => handleSetIframeUrl(item.url)}
 							className={cn("item-container", { "item-container-hover": cursor === item.id })}
 							onMouseEnter={() => setHovered(item.id)}
 							onMouseLeave={() => setHovered(undefined)}
@@ -149,7 +170,7 @@ const App = () => {
 				if (item.isHighestLvl) {
 					return (
 						<div
-							onClick={() => setIframeUrl(item.url)}
+							onClick={() => handleSetIframeUrl(item.url)}
 							className={cn("item-container lvl2-and-lvl3", { "item-container-hover": cursor === item.id })}
 							onMouseEnter={() => setHovered(item.id)}
 							onMouseLeave={() => setHovered(undefined)}
@@ -169,7 +190,7 @@ const App = () => {
 				if (item.isHighestLvl) {
 					return (
 						<div
-							onClick={() => setIframeUrl(item.url)}
+							onClick={() => handleSetIframeUrl(item.url)}
 							className={cn("item-container lvl2-and-lvl3", { "item-container-hover": cursor === item.id })}
 							onMouseEnter={() => setHovered(item.id)}
 							onMouseLeave={() => setHovered(undefined)}

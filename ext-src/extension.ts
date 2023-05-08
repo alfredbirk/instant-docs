@@ -57,6 +57,9 @@ class ReactPanel {
         // This happens when the user closes the panel or when the panel is closed programatically
         this._panel.onDidDispose(() => this.dispose(), null, this._disposables);
 
+        let recentlyUsedDocs = JSON.parse(context.globalState.get("recentlyUsedDocs") || "[]");
+        this._panel.webview.postMessage({ command: "recentlyUsedDocs", recentlyUsedDocs });
+
         // Handle messages from the webview
         this._panel.webview.onDidReceiveMessage(
             async (message) => {
@@ -91,6 +94,23 @@ class ReactPanel {
                         const data: any = await response.json();
 
                         this._panel.webview.postMessage(data.results);
+                        break;
+
+                    case "openDocs":
+                        const libraryIndexName = message.libraryIndexName;
+                        let recentlyUsedDocs = JSON.parse(context.globalState.get("recentlyUsedDocs") || "[]");
+
+                        // Remove fetched doc from array
+                        var index = recentlyUsedDocs.indexOf(libraryIndexName);
+                        if (index !== -1) {
+                            recentlyUsedDocs.splice(index, 1);
+                        }
+
+                        // Add it again to the beginning
+                        recentlyUsedDocs.unshift(libraryIndexName);
+                        recentlyUsedDocs = recentlyUsedDocs.slice(0, 5);
+                        context.globalState.update("recentlyUsedDocs", JSON.stringify(recentlyUsedDocs));
+                        break;
 
                     case "alert":
                         vscode.window.showErrorMessage(message.text);
