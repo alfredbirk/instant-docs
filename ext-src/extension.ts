@@ -6,7 +6,7 @@ import { Uri } from "vscode";
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand("instant-docs.search", () => {
-            ReactPanel.createOrShow(context.extensionUri, context.extensionPath);
+            ReactPanel.createOrShow(context);
         })
     );
 }
@@ -23,11 +23,10 @@ class ReactPanel {
     private static readonly viewType = "react";
 
     private readonly _panel: vscode.WebviewPanel;
-    private readonly _extensionUri: Uri;
-    private readonly _extensionPath: string;
+    private readonly _context: vscode.ExtensionContext;
     private _disposables: vscode.Disposable[] = [];
 
-    public static createOrShow(extensionUri: Uri, extensionPath: string) {
+    public static createOrShow(context: vscode.ExtensionContext) {
         const column = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined;
 
         // If we already have a panel, show it.
@@ -35,13 +34,12 @@ class ReactPanel {
         if (ReactPanel.currentPanel) {
             ReactPanel.currentPanel._panel.reveal(column);
         } else {
-            ReactPanel.currentPanel = new ReactPanel(extensionUri, extensionPath, vscode.ViewColumn.Two);
+            ReactPanel.currentPanel = new ReactPanel(context, vscode.ViewColumn.Two);
         }
     }
 
-    private constructor(extensionUri: Uri, extensionPath: string, column: vscode.ViewColumn) {
-        this._extensionUri = extensionUri;
-        this._extensionPath = extensionPath;
+    private constructor(context: vscode.ExtensionContext, column: vscode.ViewColumn) {
+        this._context = context;
 
         // Create and show a new webview panel
         this._panel = vscode.window.createWebviewPanel(ReactPanel.viewType, "Instant Docs", column, {
@@ -49,7 +47,7 @@ class ReactPanel {
             enableScripts: true,
 
             // And restric the webview to only loading content from our extension's `media` directory.
-            localResourceRoots: [vscode.Uri.joinPath(this._extensionUri, "build")],
+            localResourceRoots: [vscode.Uri.joinPath(this._context.extensionUri, "build")],
         });
 
         // Set the webview's initial html content
@@ -125,12 +123,12 @@ class ReactPanel {
     }
 
     private _getHtmlForWebview() {
-        const manifest = require(path.join(this._extensionPath, "build", "asset-manifest.json"));
+        const manifest = require(path.join(this._context.extensionPath, "build", "asset-manifest.json"));
         const mainScript = manifest.files["main.js"];
         const mainStyle = manifest.files["main.css"];
-        const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, "build", mainScript);
+        const scriptPathOnDisk = vscode.Uri.joinPath(this._context.extensionUri, "build", mainScript);
         const scriptUri = scriptPathOnDisk.with({ scheme: "https" });
-        const stylePathOnDisk = vscode.Uri.joinPath(this._extensionUri, "build", mainStyle);
+        const stylePathOnDisk = vscode.Uri.joinPath(this._context.extensionUri, "build", mainStyle);
         const styleUri = this._panel.webview.asWebviewUri(stylePathOnDisk);
 
         // Use a nonce to whitelist which scripts can be run
@@ -144,7 +142,7 @@ class ReactPanel {
 				<meta name="theme-color" content="#000000">
 				<title>Instant Docs</title>
 				<link rel="stylesheet" type="text/css" href="${styleUri}">
-				<base href="${this._panel.webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "build"))}/">
+				<base href="${this._panel.webview.asWebviewUri(vscode.Uri.joinPath(this._context.extensionUri, "build"))}/">
 				<meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
 
 			</head>
