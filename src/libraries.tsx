@@ -113,6 +113,12 @@ const libraries: LibraryConfig[] = [
             facetFilters: '["language:en", ["docusaurus_tag:default", "docusaurus_tag:docs-default-current"]]',
         },
     },
+    {
+        displayName: "GraphQL",
+        indexName: "graphql",
+        algoliaApiUrl: "https://bh4d9od16a-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%203.21.0%3Bdocsearch.js%201.5.0&x-algolia-application-id=BH4D9OD16A&x-algolia-api-key=d103541f3e6041148aade2e746ed4d61",
+        extraBodyParams: {},
+    },
 ]
 
 export default libraries
