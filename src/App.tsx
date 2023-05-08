@@ -154,7 +154,7 @@ const App = () => {
 							onMouseEnter={() => setHovered(item.id)}
 							onMouseLeave={() => setHovered(undefined)}
 						>
-							<div>
+							<div className="vert">
 								<span className={cn("icon-container", { "icon-container-hover": cursor === item.id })}>
 									<FontAwesomeIcon icon={faHashtag} />
 								</span>

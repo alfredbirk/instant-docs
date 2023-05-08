@@ -104,17 +104,14 @@ body {
 }
 
 .vert::before {
-    --tw-bg-opacity: 1;
-    background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+    --tw-bg-opacity: 0.5;
     content: "";
     position: absolute;
     top: -0.25rem;
     bottom: -0.25rem;
     left: -2rem;
     width: 1px;
-    background: #e2e8f0;
-
-    background-color: #334154;
+    background-color: #5c5f66;
 }
 
 .lvl3-container {
