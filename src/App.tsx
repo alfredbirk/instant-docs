@@ -39,25 +39,25 @@ const App = () => {
 	useEffect(() => {
 		if (items.length && downPress) {
 			setCursor((prevState: any) => (prevState < items.length - 1 ? prevState + 1 : prevState));
-			inputRef.current.blur()
+			inputRef.current?.blur()
 		}
 	}, [downPress]);
 	useEffect(() => {
 		if (items.length && upPress) {
 			setCursor((prevState: any) => (prevState > 0 ? prevState - 1 : prevState));
-			inputRef.current.blur()
+			inputRef.current?.blur()
 		}
 	}, [upPress]);
 	useEffect(() => {
 		if (items.length && enterPress) {
 			setSelected(cursor);
-			inputRef.current.blur()
+			inputRef.current?.blur()
 		}
 	}, [cursor, enterPress]);
 	useEffect(() => {
 		if (items.length && hovered !== undefined) {
 			setCursor(hovered);
-			inputRef.current.blur()
+			inputRef.current?.blur()
 		}
 	}, [hovered]);
 	useEffect(() => {
