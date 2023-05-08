@@ -51,9 +51,11 @@
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.7",
+    "patch-package": "^7.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^4.8.0",
+    "react-select": "^5.7.3",
     "usehooks-ts": "^2.5.1"
   },
   "scripts": {
@@ -67,7 +69,8 @@
     "esbuild-base": "esbuild ./ext-src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-    "test-compile": "tsc -p ./"
+    "test-compile": "tsc -p ./",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",

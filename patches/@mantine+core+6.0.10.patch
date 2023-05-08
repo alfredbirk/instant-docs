@@ -1,0 +1,13 @@
+diff --git a/node_modules/@mantine/core/esm/Select/Select.js b/node_modules/@mantine/core/esm/Select/Select.js
+index 88f17f8..632bb28 100644
+--- a/node_modules/@mantine/core/esm/Select/Select.js
++++ b/node_modules/@mantine/core/esm/Select/Select.js
+@@ -175,7 +175,7 @@ const Select = forwardRef((props, ref) => {
+   ]);
+   const { classes, cx, theme } = useStyles();
+   const [dropdownOpened, _setDropdownOpened] = useState(initiallyOpened);
+-  const [hovered, setHovered] = useState(-1);
++  const [hovered, setHovered] = useState(hoverOnSearchChange ? 0 : -1);
+   const inputRef = useRef();
+   const itemsRefs = useRef({});
+   const [direction, setDirection] = useState("column");
