@@ -235,6 +235,7 @@ const App = () => {
 								initiallyOpened
 								hoverOnSearchChange
 								autoFocus
+								selectOnBlur
 								dropdownComponent="div"
 								onChange={(value) => {
 									setSelectedLibrary(libraries.find(lib => lib.displayName === value))
