@@ -119,6 +119,30 @@ const libraries: LibraryConfig[] = [
         algoliaApiUrl: "https://bh4d9od16a-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%203.21.0%3Bdocsearch.js%201.5.0&x-algolia-application-id=BH4D9OD16A&x-algolia-api-key=d103541f3e6041148aade2e746ed4d61",
         extraBodyParams: {},
     },
+    {
+        displayName: "Scala",
+        indexName: "scala-lang",
+        algoliaApiUrl: "https://bh4d9od16a-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=BH4D9OD16A&x-algolia-api-key=fbc439670f5d4e3730cdcb715c359391",
+        extraBodyParams: {
+            facetFilters: '["language:en"]'
+        },
+    },
+    {
+        displayName: "Vite js",
+        indexName: "vitejs",
+        algoliaApiUrl: "https://7h67qr5p0a-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.8.5)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docsearch.js%20(3.3.3)&x-algolia-api-key=deaab78bcdfe96b599497d25acc6460e&x-algolia-application-id=7H67QR5P0A",
+        extraBodyParams: {
+            facetFilters: '["tags:en","lang:en-US"]',
+        },
+    },
+    {
+        displayName: "Day.js",
+        indexName: "dayjs",
+        algoliaApiUrl: "https://bh4d9od16a-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%203.21.0%3Bdocsearch.js%201.5.0&x-algolia-application-id=BH4D9OD16A&x-algolia-api-key=015f468476ca8256cf1c8e8fb6d82cc3",
+        extraBodyParams: {
+            facetFilters: '["language:en"]',
+        },
+    },
 ]
 
 export default libraries

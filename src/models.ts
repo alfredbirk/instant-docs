@@ -5,5 +5,5 @@ export interface LibraryConfig {
     logo?: ReactNode,
     indexName: string,
     algoliaApiUrl: string,
-    extraBodyParams?: Record<string, string>
+    extraBodyParams?: Record<string, any>
 }
