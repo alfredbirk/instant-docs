@@ -1,4 +1,3 @@
-// @ts-nocheck
 import * as React from "react";
 import "./App.css";
 import { useState, useEffect, useRef } from "react";
@@ -11,6 +10,7 @@ import { getFlattenedItems, useKeyPress } from "./utils";
 import cn from "classnames";
 import librariesFromFile from "./libraries"
 import { MantineProvider, Select } from '@mantine/core';
+import { LibraryConfig } from "./models";
 
 interface vscode {
 	postMessage(message: any): void;
@@ -24,10 +24,10 @@ const App = () => {
 	const [query, setQuery] = useState("");
 	const debouncedQuery = useDebounce<string>(query, 100);
 	const [iframeUrl, setIframeUrl] = useState("");
-	const [items, setItems] = useState([]);
-	const inputRef = useRef(null);
-	const [libraries, setLibraries] = useState();
-	const [selectedLibrary, setSelectedLibrary] = useState(null);
+	const [items, setItems] = useState<any>([]);
+	const inputRef = useRef<HTMLInputElement>(null);
+	const [libraries, setLibraries] = useState<LibraryConfig[]>([]);
+	const [selectedLibrary, setSelectedLibrary] = useState<LibraryConfig | undefined>(undefined);
 
 	/////////////////////
 	// Keyboard navigation
@@ -62,7 +62,7 @@ const App = () => {
 		}
 	}, [hovered]);
 	useEffect(() => {
-		const selectedItem = items.find((item) => item.id === selected);
+		const selectedItem = items.find((item: any) => item.id === selected);
 		if (selectedItem && selectedItem.url) {
 			handleSetIframeUrl(selectedItem.url);
 		}
@@ -84,20 +84,23 @@ const App = () => {
 
 	useEffect(() => {
 		window.addEventListener("message", (message) => {
-			if (message.data.command === "recentlyUsedDocs") {
-				const recentlyUsedDocs = message.data.recentlyUsedDocs
-				const sortedLibraries = librariesFromFile.sort((a, b) => {
-					const aIndex = recentlyUsedDocs.indexOf(a.indexName) === -1 ? 1000 : recentlyUsedDocs.indexOf(a.indexName)
-					const bIndex = recentlyUsedDocs.indexOf(b.indexName) === -1 ? 1000 : recentlyUsedDocs.indexOf(b.indexName)
-					return aIndex - bIndex;
-				})
-				setLibraries(sortedLibraries)
-			} else {
-				const hits = message.data[0].hits;
-				const flattenedItems = getFlattenedItems(hits);
-				setItems(flattenedItems)
+			switch (message.data.command) {
+				case "recentlyUsedDocs":
+					const recentlyUsedDocs = message.data.recentlyUsedDocs
+					const sortedLibraries = librariesFromFile.sort((a, b) => {
+						const aIndex = recentlyUsedDocs.indexOf(a.indexName) === -1 ? 1000 : recentlyUsedDocs.indexOf(a.indexName)
+						const bIndex = recentlyUsedDocs.indexOf(b.indexName) === -1 ? 1000 : recentlyUsedDocs.indexOf(b.indexName)
+						return aIndex - bIndex;
+					})
+					setLibraries(sortedLibraries)
+					break;
+				case "queryResults":
+					const hits = message.data.results[0].hits;
+					const flattenedItems = getFlattenedItems(hits);
+					setItems(flattenedItems)
+				default:
+					break;
 			}
-
 		})
 
 		// Disable scrolling with arrow keys
@@ -108,15 +111,17 @@ const App = () => {
 		}, false);
 	}, []);
 
-	const handleSetIframeUrl = (url) => {
-		vscodeApi.postMessage({ command: "openDocs", libraryIndexName: selectedLibrary.indexName });
-		setIframeUrl(url);
+	const handleSetIframeUrl = (url: string) => {
+		if (selectedLibrary) {
+			vscodeApi.postMessage({ command: "openDocs", libraryIndexName: selectedLibrary.indexName });
+			setIframeUrl(url);
+		}
 	}
 
 	if (iframeUrl) {
 		return (
 			<div style={{ height: "100vh", background: "white" }}>
-				<iframe width="100%" height="100%" src={iframeUrl} title={`${selectedLibrary.displayName} documentation`}></iframe>
+				<iframe width="100%" height="100%" src={iframeUrl} title="Instant Docs"></iframe>
 			</div>
 		);
 	}
@@ -125,7 +130,7 @@ const App = () => {
 		return <></>
 	}
 
-	const renderItem = (item) => {
+	const renderItem = (item: any) => {
 		switch (item.lvl) {
 			case 0:
 				return <h3 className="lvl0" dangerouslySetInnerHTML={{ __html: item.name }} />;
@@ -240,7 +245,7 @@ const App = () => {
 								onChange={(value) => {
 									setSelectedLibrary(libraries.find(lib => lib.displayName === value))
 									setTimeout(() => {
-										inputRef.current.focus()
+										inputRef.current?.focus()
 									}, 0);
 								}}
 							/>
