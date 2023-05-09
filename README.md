@@ -28,3 +28,28 @@
 
 
 ![InstantDocs](https://user-images.githubusercontent.com/11172530/236686102-0beef484-d642-4147-b995-2acb26cdf10e.gif)
+
+
+## FAQ
+
+#### Which documentations are included?
+- `Typescript`
+- `Tailwind`
+- `React`
+- `Express js`
+- `Jest`
+- `Meteor`
+- `Moment js`
+- `Webpack`
+- `Babel`
+- `Nuxt js`
+- `Nest js`
+- `Playwright`
+- `Puppeteer`
+- `Bootstrap`
+- `Cypress`
+- `Redux`
+- `GraphQL`
+- `Scala`
+- `Vite js`
+- `Day.js`
