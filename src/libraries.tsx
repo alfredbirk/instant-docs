@@ -143,6 +143,14 @@ const libraries: LibraryConfig[] = [
             facetFilters: '["language:en"]',
         },
     },
+    {
+        displayName: "React Native",
+        indexName: "react-native-v2",
+        algoliaApiUrl: "https://8tdse0ohgq-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.1)%3B%20Browser%20(lite)%3B%20docsearch%20(3.2.0)%3B%20docsearch-react%20(3.2.0)%3B%20docusaurus%20(2.4.1)&x-algolia-api-key=83cd239c72f9f8b0ed270a04b1185288&x-algolia-application-id=8TDSE0OHGQ",
+        extraBodyParams: {
+            facetFilters: '["language:en"]',
+        },
+    },
 ]
 
 export default libraries
