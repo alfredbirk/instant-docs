@@ -54,3 +54,7 @@
 - `Vite js`
 - `Day.js`
 - `React Native`
+
+## Issues & feature requests
+
+Issues and feature requests related to the extension can be submitted [on Github](https://github.com/alfredbirk/tailwind-documentation/issues)
