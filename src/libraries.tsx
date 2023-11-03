@@ -189,6 +189,13 @@ const libraries: LibraryConfig[] = [
             facetFilters: '["lang:en"]',
         },
     },
+    {
+        displayName: "Docker",
+        indexName: "docker",
+        algoliaApiUrl:
+            "https://3xrlw0lzh9-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.19.1)%3B%20Browser%20(lite)%3B%20docsearch%20(3.5.2)%3B%20docsearch-react%20(3.5.2)%3B%20docsearch.js%20(3.5.2)&x-algolia-api-key=2899036ce47dba191b8dc1758e4bc6a4&x-algolia-application-id=3XRLW0LZH9",
+        extraBodyParams: {},
+    },
 ];
 
 export default libraries;

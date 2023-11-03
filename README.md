@@ -35,6 +35,7 @@
 #### Which documentations are included?
 - `Typescript`
 - `Tailwind`
+- `Docker`
 - `React`
 - `Express js`
 - `Jest`
