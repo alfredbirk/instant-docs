@@ -55,6 +55,7 @@
 - `Day.js`
 - `React Native`
 - `Remix`
+- `Astro`
 
 ## Issues & feature requests
 

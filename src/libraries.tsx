@@ -180,6 +180,15 @@ const libraries: LibraryConfig[] = [
             "https://6ohwjsr8g4-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.20.0)%3B%20Browser%20(lite)%3B%20docsearch%20(3.5.2)%3B%20docsearch-react%20(3.5.2)&x-algolia-api-key=dff56670dbec8494409989d6ec9c8ac2&x-algolia-application-id=6OHWJSR8G4",
         extraBodyParams: {},
     },
+    {
+        displayName: "Astro",
+        indexName: "astro",
+        algoliaApiUrl:
+            "https://7afbu8epju-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.12.2)%3B%20Browser%20(lite)%3B%20docsearch%20(3.5.1)%3B%20docsearch-react%20(3.5.1)&x-algolia-api-key=4440670147c44d744fd8da35ff652518&x-algolia-application-id=7AFBU8EPJU",
+        extraBodyParams: {
+            facetFilters: '["lang:en"]',
+        },
+    },
 ];
 
 export default libraries;
