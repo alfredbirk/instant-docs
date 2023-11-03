@@ -54,6 +54,7 @@
 - `Vite js`
 - `Day.js`
 - `React Native`
+- `Remix`
 
 ## Issues & feature requests
 
