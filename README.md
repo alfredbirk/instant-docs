@@ -19,20 +19,19 @@
 
 ## Features
 
--   Will open within VSCode - don't lose context!
--   Documentation for 20+ libraries (Typescript, React, Express, Tailwind, Jest ++)
--   Open with:
-    -   Mac: `cmd + shift + i`
-    -   Windows: `ctrl + shift + i`
--   Keyboard navigation
-
+- Will open within VSCode - don't lose context!
+- Documentation for 20+ libraries (Typescript, React, Express, Tailwind, Jest ++)
+- Open with:
+  - Mac: `cmd + shift + i`
+  - Windows: `ctrl + shift + i`
+- Keyboard navigation
 
 ![InstantDocs](https://user-images.githubusercontent.com/11172530/236686102-0beef484-d642-4147-b995-2acb26cdf10e.gif)
-
 
 ## FAQ
 
 #### Which documentations are included?
+
 - `Typescript`
 - `Tailwind`
 - `Docker`
