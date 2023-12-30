@@ -113,8 +113,10 @@ const App = () => {
 
 	const handleSetIframeUrl = (url: string) => {
 		if (selectedLibrary) {
-			vscodeApi.postMessage({ command: "openDocs", libraryIndexName: selectedLibrary.indexName });
-			setIframeUrl(url);
+			vscodeApi.postMessage({ command: "openDocs", libraryIndexName: selectedLibrary.indexName, type: selectedLibrary.type, url });
+			if (selectedLibrary.type !== "openInBrowser") {
+				setIframeUrl(url);
+			}
 		}
 	}
 

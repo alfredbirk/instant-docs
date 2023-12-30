@@ -110,6 +110,11 @@ class ReactPanel {
                         recentlyUsedDocs.unshift(libraryIndexName);
                         recentlyUsedDocs = recentlyUsedDocs.slice(0, 5);
                         context.globalState.update("recentlyUsedDocs", JSON.stringify(recentlyUsedDocs));
+
+                        // Open some docs in browser
+                        if (message.type === "openInBrowser") {
+                            vscode.env.openExternal(vscode.Uri.parse(message.url));
+                        }
                         break;
 
                     case "alert":

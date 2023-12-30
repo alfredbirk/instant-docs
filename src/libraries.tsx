@@ -196,6 +196,14 @@ const libraries: LibraryConfig[] = [
             "https://3xrlw0lzh9-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.19.1)%3B%20Browser%20(lite)%3B%20docsearch%20(3.5.2)%3B%20docsearch-react%20(3.5.2)%3B%20docsearch.js%20(3.5.2)&x-algolia-api-key=2899036ce47dba191b8dc1758e4bc6a4&x-algolia-application-id=3XRLW0LZH9",
         extraBodyParams: {},
     },
+    {
+        displayName: "Laravel",
+        indexName: "laravel",
+        algoliaApiUrl:
+            "https://e3mirnpjh5-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.8.5)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docsearch.js%20(3.3.3)&x-algolia-api-key=1fa3a8fec06eb1858d6ca137211225c0&x-algolia-application-id=E3MIRNPJH5",
+        extraBodyParams: {},
+        type: "openInBrowser",
+    },
 ];
 
 export default libraries;
