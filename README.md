@@ -56,6 +56,8 @@
 - `React Native`
 - `Remix`
 - `Astro`
+- `Laravel`
+- `Vue`
 
 ## Issues & feature requests
 
