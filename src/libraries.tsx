@@ -204,6 +204,14 @@ const libraries: LibraryConfig[] = [
         extraBodyParams: {},
         type: "openInBrowser",
     },
+    {
+        displayName: "Vue",
+        indexName: "vuejs",
+        algoliaApiUrl:
+            "https://ml0lebn7fq-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.19.1)%3B%20Browser%20(lite)%3B%20docsearch%20(3.5.2)%3B%20docsearch-react%20(3.5.2)%3B%20docsearch.js%20(3.5.2)&x-algolia-api-key=f49cbd92a74532cc55cfbffa5e5a7d01&x-algolia-application-id=ML0LEBN7FQ",
+        extraBodyParams: {},
+        type: "openInBrowser",
+    },
 ];
 
 export default libraries;
