@@ -61,4 +61,4 @@
 
 ## Issues & feature requests
 
-Issues and feature requests related to the extension can be submitted [on Github](https://github.com/alfredbirk/tailwind-documentation/issues). I can add new docs if the docs are powered by Algolia Search.
+Issues and feature requests related to the extension can be submitted [on Github](https://github.com/alfredbirk/instant-docs/issues). I can add new docs if the docs are powered by Algolia Search.
