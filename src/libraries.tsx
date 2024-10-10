@@ -220,6 +220,14 @@ const libraries: LibraryConfig[] = [
         extraBodyParams: {},
         type: "openInBrowser",
     },
+    {
+        displayName: "Livewire",
+        indexName: "livewire-framework-3",
+        algoliaApiUrl:
+            "https://418wmk58d6-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=418WMK58D6&x-algolia-api-key=4c5d415abd4c0c167f4368e679076c09",
+        extraBodyParams: {},
+        type: "openInBrowser",
+    },
 ];
 
 export default libraries;
