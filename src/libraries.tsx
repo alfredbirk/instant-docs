@@ -212,6 +212,14 @@ const libraries: LibraryConfig[] = [
         extraBodyParams: {},
         type: "openInBrowser",
     },
+    {
+        displayName: "Alpine.js",
+        indexName: "alpinejs",
+        algoliaApiUrl:
+            "https://sm9gagaukz-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.19.1)%3B%20Browser%20(lite)%3B%20docsearch%20(3.6.2)%3B%20docsearch-react%20(3.6.2)%3B%20docsearch.js%20(3.6.2)&x-algolia-api-key=1fad8740c0cf75209d11ae25f1f6f55c&x-algolia-application-id=SM9GAGAUKZ",
+        extraBodyParams: {},
+        type: "openInBrowser",
+    },
 ];
 
 export default libraries;
