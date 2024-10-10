@@ -58,6 +58,8 @@
 - `Astro`
 - `Laravel`
 - `Vue`
+- `Alpine js`
+- `Livewire`
 
 ## Issues & feature requests
 
