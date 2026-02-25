@@ -78,11 +78,13 @@ export const createHierarchyGraph = (hits: any) => {
       }
     } else {
       let newNode = {
-        name: hit.hierarchy["lvl0"],
-        children: [],
-        lvl: "lvl0",
-        url: hit.url,
-        highlightResult: hit._highlightResult.hierarchy.lvl0.value,
+          name: hit.hierarchy["lvl0"],
+          children: [],
+          lvl: "lvl0",
+          url: hit.url,
+          highlightResult: hit._highlightResult.hierarchy.lvl0
+              ? hit._highlightResult.hierarchy.lvl0.value
+              : hit._highlightResult.hierarchy.lvl1.value,
       };
 
       graph[newNode.name] = newNode;

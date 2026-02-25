@@ -12,9 +12,9 @@ const libraries: LibraryConfig[] = [
         displayName: "Tailwind",
         indexName: "tailwindcss",
         algoliaApiUrl:
-            "https://knpxzi5b0m-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.9.2)%3B%20Browser%20(lite)%3B%20docsearch%20(1.0.0-alpha.27)%3B%20docsearch-react%20(1.0.0-alpha.27)%3B%20autocomplete-core%20(1.0.0-alpha.28)&x-algolia-api-key=5fc87cef58bb80203d2207578309fab6&x-algolia-application-id=KNPXZI5B0M",
+            "https://knpxzi5b0m-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(5.19.0)%3B%20Lite%20(5.19.0)%3B%20Browser%3B%20docsearch%20(3.9.0)%3B%20docsearch-react%20(3.9.0)&x-algolia-api-key=5fc87cef58bb80203d2207578309fab6&x-algolia-application-id=KNPXZI5B0M",
         extraBodyParams: {
-            facetFilters: "version:v3",
+            facetFilters: "version:v4",
         },
     },
     {
@@ -225,6 +225,14 @@ const libraries: LibraryConfig[] = [
         indexName: "livewire-framework-3",
         algoliaApiUrl:
             "https://418wmk58d6-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.30.0%3Bdocsearch.js%202.6.3&x-algolia-application-id=418WMK58D6&x-algolia-api-key=4c5d415abd4c0c167f4368e679076c09",
+        extraBodyParams: {},
+        type: "openInBrowser",
+    },
+    {
+        displayName: "PestPHP",
+        indexName: "pestphp",
+        algoliaApiUrl:
+            "https://1jfxodbvdh-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.8.5)%3B%20Browser%20(lite)%3B%20docsearch%20(3.3.3)%3B%20docsearch-react%20(3.3.3)%3B%20docsearch.js%20(3.3.3)&x-algolia-api-key=dd63fbb022012f3144613ee088b8645b&x-algolia-application-id=1JFXODBVDH",
         extraBodyParams: {},
         type: "openInBrowser",
     },
